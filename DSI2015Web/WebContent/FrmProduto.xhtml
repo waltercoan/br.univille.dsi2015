@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+  	  xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<meta charset="UTF-8"/>
+		<title>Tela</title>
+	</h:head>
+	<body>
+			<p:dataTable value="#{crtProduto.produtoBean.getTodosProdutos()}" 
+					var="umproduto">
+				<f:facet name="header">Listar Produtos</f:facet>
+					<p:column>
+						<f:facet name="header">Codigo</f:facet>
+						<h:outputText value="#{umproduto.codigo}"/>
+					</p:column>
+					<p:column>
+						<f:facet name="header">Descricao</f:facet>
+						<h:outputText value="#{umproduto.descricao}"/>
+					</p:column>
+			</p:dataTable>
+	</body>
+</html>
