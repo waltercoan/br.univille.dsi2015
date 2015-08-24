@@ -30,6 +30,8 @@ public class Produto implements Serializable {
 	private String descricao;
 	private float valor;
 	
+	//Segue abaixo código dos métodos GETs e SETs...
+	
 	public long getOid() {
 		return oid;
 	}
