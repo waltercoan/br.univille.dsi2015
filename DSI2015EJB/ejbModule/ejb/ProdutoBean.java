@@ -1,5 +1,6 @@
 package ejb;
 
+
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -19,24 +20,42 @@ public class ProdutoBean implements ProdutoBeanRemote, ProdutoBeanLocal {
 
 	@PersistenceContext(name="dsi2015context")
 	private EntityManager em;
-	
+
+
 	public List<Produto> getTodosProdutos(){
-		Query q = em.createNamedQuery("todosProdutos");
-		return q.getResultList();
+		Query consulta = em.createNamedQuery("todosProdutos");
+		return consulta.getResultList();
 	}
-	
 	public List<Produto> getProdutosPorDesc(String desc){
-		Query q = em.createNamedQuery("produtosPorDesc");
-		q.setParameter("descricao", "%"+desc+"%");
-		//q.setParameter("descricao", String.format("\\%%s\\%", desc));
-		//q.setMaxResults(10);
-		//q.setFirstResult(prox);
-		return q.getResultList();
+		Query consulta = em.createNamedQuery("produtosPorDesc");
+		consulta.setParameter("descricao", desc);
+		return consulta.getResultList();
 	}
+
+	public void save(Produto produto){
+		if(em.find(Produto.class, produto.getOid())
+				== null){
+			//insert
+			em.persist(produto);
+		}else{
+			//update 
+			em.merge(produto);
+		}
+	}
+	public void delete(Produto produto){
+		produto = em.find(Produto.class, produto.getOid());
+		if(produto != null){
+			em.remove(produto);
+		}
+	}
+
+
+
 	
-	
-    public ProdutoBean() {
-        // TODO Auto-generated constructor stub
-    }
+
+
+	public ProdutoBean() {
+		// TODO Auto-generated constructor stub
+	}
 
 }

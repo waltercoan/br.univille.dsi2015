@@ -12,8 +12,8 @@ import javax.persistence.NamedQuery;
 
 @NamedQueries({
 	@NamedQuery(name="todosProdutos", 
-			query= "Select p from Produto p"),
-			
+			query="Select p from Produto p"),
+	
 	@NamedQuery(name="produtosPorDesc",
 		query = "Select p from Produto p where p.descricao like :descricao")
 })

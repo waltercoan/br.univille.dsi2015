@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_05"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/DSI2015EJB"/>
 	<classpathentry kind="lib" path="src/lib/gf-client-module.jar"/>
+	<classpathentry kind="lib" path="src/lib/LayoutAuxiliares.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

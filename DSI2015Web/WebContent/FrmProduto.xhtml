@@ -9,17 +9,18 @@
 		<title>Tela</title>
 	</h:head>
 	<body>
-			<p:dataTable value="#{crtProduto.produtoBean.getTodosProdutos()}" 
-					var="umproduto">
-				<f:facet name="header">Listar Produtos</f:facet>
-					<p:column>
-						<f:facet name="header">Codigo</f:facet>
-						<h:outputText value="#{umproduto.codigo}"/>
-					</p:column>
-					<p:column>
-						<f:facet name="header">Descricao</f:facet>
-						<h:outputText value="#{umproduto.descricao}"/>
-					</p:column>
+		<h:form>
+			<p:dataTable value="#{crtProduto.getAllProdutos()}" var="umProduto">
+				<p:column>
+					<h:outputText value="#{umProduto.codigo}"/>
+				</p:column>
+				<p:column>
+					<h:outputText value="#{umProduto.descricao}"/>
+				</p:column>
+				<p:column>
+					<h:outputText value="#{umProduto.valor}"/>
+				</p:column>
 			</p:dataTable>
+		</h:form>
 	</body>
 </html>

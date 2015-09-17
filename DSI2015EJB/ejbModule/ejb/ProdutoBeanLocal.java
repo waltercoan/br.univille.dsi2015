@@ -10,4 +10,6 @@ import dao.Produto;
 public interface ProdutoBeanLocal {
 	public List<Produto> getTodosProdutos();
 	public List<Produto> getProdutosPorDesc(String desc);
+	public void save(Produto produto);
+	public void delete(Produto produto);
 }
