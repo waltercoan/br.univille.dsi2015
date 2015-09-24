@@ -15,7 +15,25 @@ public class CrtProduto {
 	@EJB
 	private ProdutoBeanLocal produtoBean;
 	
+	private Produto model = new Produto();
 	
+	public void createNewProduto(){
+		model = new Produto();
+	}
+	public void save(){
+		produtoBean.save(model);
+	}
+	
+	public Produto getModel() {
+		return model;
+	}
+
+
+	public void setModel(Produto model) {
+		this.model = model;
+	}
+
+
 	public List<Produto> getAllProdutos(){
 		return produtoBean.getTodosProdutos();
 	}

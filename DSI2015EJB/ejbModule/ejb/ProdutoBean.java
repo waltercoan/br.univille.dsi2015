@@ -33,8 +33,7 @@ public class ProdutoBean implements ProdutoBeanRemote, ProdutoBeanLocal {
 	}
 
 	public void save(Produto produto){
-		if(em.find(Produto.class, produto.getOid())
-				== null){
+		if(em.find(Produto.class, produto.getOid()) == null){
 			//insert
 			em.persist(produto);
 		}else{

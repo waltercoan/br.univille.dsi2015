@@ -9,7 +9,7 @@
 		<title>Tela</title>
 	</h:head>
 	<body>
-		<h:form>
+		<h:form id="formTable">
 			<p:dataTable value="#{crtProduto.getAllProdutos()}" var="umProduto">
 				<p:column>
 					<h:outputText value="#{umProduto.codigo}"/>
@@ -20,7 +20,46 @@
 				<p:column>
 					<h:outputText value="#{umProduto.valor}"/>
 				</p:column>
+				
+				<f:facet name="footer">
+					<!-- Inclusão do update=":form:formDetail" -->
+					<p:commandButton id="cbIncluir" value="Incluir" 
+							update=":form:formDetail"
+							oncomplete="PF('dlg1').show()"
+							action="#{crtProduto.createNewProduto()}"/>
+				</f:facet>
+				
 			</p:dataTable>
 		</h:form>
+		<!-- Inclusão do id="form"-->
+		<h:form id="form">
+			<p:dialog width="500" height="500" widgetVar="dlg1">
+				<!-- Inclusão do id="formDetail"-->
+				<h:panelGrid columns="2" id="formDetail">
+				
+					
+					<h:outputLabel value="Código"/>
+					<p:inputText id="txtCodigo" 
+							value="#{crtProduto.model.codigo}"/>
+				
+					<h:outputLabel value="Descrição"/>
+					<p:inputText id="txtDescricao" 
+							value="#{crtProduto.model.descricao}"/>
+							
+					<p:commandButton value="OK" 
+							action="#{crtProduto.save()}"
+							update=":formTable"
+							oncomplete="PF('dlg1').hide()"/>		
+					
+					<p:commandButton value="Cancelar"
+							oncomplete="PF('dlg1').hide()"/>
+							
+				</h:panelGrid>
+			</p:dialog>
+		</h:form>
+		
+		
+		
+		
 	</body>
 </html>
