@@ -4,62 +4,63 @@
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:f="http://java.sun.com/jsf/core"
   	  xmlns:p="http://primefaces.org/ui">
+  	  <ui:decorate template="template.xhtml">
+        <ui:define name="centro">
+      
 	<h:head>
 		<meta charset="UTF-8"/>
 		<title>Tela</title>
 	</h:head>
-	<body>
-		<h:form id="formTable">
-			<p:dataTable value="#{crtProduto.getAllProdutos()}" var="umProduto">
-				<p:column>
-					<h:outputText value="#{umProduto.codigo}"/>
-				</p:column>
-				<p:column>
-					<h:outputText value="#{umProduto.descricao}"/>
-				</p:column>
-				<p:column>
-					<h:outputText value="#{umProduto.valor}"/>
-				</p:column>
-				
-				<f:facet name="footer">
-					<!-- Inclusão do update=":form:formDetail" -->
-					<p:commandButton id="cbIncluir" value="Incluir" 
-							update=":form:formDetail"
-							oncomplete="PF('dlg1').show()"
-							action="#{crtProduto.createNewProduto()}"/>
-				</f:facet>
-				
-			</p:dataTable>
-		</h:form>
-		<!-- Inclusão do id="form"-->
-		<h:form id="form">
-			<p:dialog width="500" height="500" widgetVar="dlg1">
-				<!-- Inclusão do id="formDetail"-->
-				<h:panelGrid columns="2" id="formDetail">
-				
+		<body>
+			<h:form id="formTable">
+				<p:dataTable value="#{crtProduto.getAllProdutos()}" var="umProduto">
+					<p:column>
+						<h:outputText value="#{umProduto.codigo}"/>
+					</p:column>
+					<p:column>
+						<h:outputText value="#{umProduto.descricao}"/>
+					</p:column>
+					<p:column>
+						<h:outputText value="#{umProduto.valor}"/>
+					</p:column>
 					
-					<h:outputLabel value="Código"/>
-					<p:inputText id="txtCodigo" 
-							value="#{crtProduto.model.codigo}"/>
-				
-					<h:outputLabel value="Descrição"/>
-					<p:inputText id="txtDescricao" 
-							value="#{crtProduto.model.descricao}"/>
-							
-					<p:commandButton value="OK" 
-							action="#{crtProduto.save()}"
-							update=":formTable"
-							oncomplete="PF('dlg1').hide()"/>		
+					<f:facet name="footer">
+						<!-- Inclusão do update=":form:formDetail" -->
+						<p:commandButton id="cbIncluir" value="Incluir" 
+								update=":form:formDetail"
+								oncomplete="PF('dlg1').show()"
+								action="#{crtProduto.createNewProduto()}"/>
+					</f:facet>
 					
-					<p:commandButton value="Cancelar"
-							oncomplete="PF('dlg1').hide()"/>
-							
-				</h:panelGrid>
-			</p:dialog>
-		</h:form>
-		
-		
-		
-		
-	</body>
+				</p:dataTable>
+			</h:form>
+			<!-- Inclusão do id="form"-->
+			<h:form id="form">
+				<p:dialog width="500" height="500" widgetVar="dlg1">
+					<!-- Inclusão do id="formDetail"-->
+					<h:panelGrid columns="2" id="formDetail">
+					
+						
+						<h:outputLabel value="Código"/>
+						<p:inputText id="txtCodigo" 
+								value="#{crtProduto.model.codigo}"/>
+					
+						<h:outputLabel value="Descrição"/>
+						<p:inputText id="txtDescricao" 
+								value="#{crtProduto.model.descricao}"/>
+								
+						<p:commandButton value="OK" 
+								action="#{crtProduto.save()}"
+								update=":formTable"
+								oncomplete="PF('dlg1').hide()"/>		
+						
+						<p:commandButton value="Cancelar"
+								oncomplete="PF('dlg1').hide()"/>
+								
+					</h:panelGrid>
+				</p:dialog>
+			</h:form>
+		</body>
+	  </ui:define>
+    </ui:decorate>
 </html>
