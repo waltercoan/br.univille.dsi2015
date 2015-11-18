@@ -15,7 +15,7 @@ import dao.Usuario;
  */
 @Stateless
 @LocalBean
-public class UsuarioBean implements  UsuarioBeanLocal {
+public class UsuarioBean implements UsuarioBeanLocal {
 
 	/**
 	 * Default constructor. 
@@ -24,11 +24,9 @@ public class UsuarioBean implements  UsuarioBeanLocal {
 	private EntityManager em;
 	
 	public UsuarioBean() {
-		// TODO Auto-generated constructor stub
+		
 	}
-	
 
-	@PostConstruct
 	public void criarAdmin(){
 		try{
 			Query q = em.createNamedQuery("findUserAdmin");
