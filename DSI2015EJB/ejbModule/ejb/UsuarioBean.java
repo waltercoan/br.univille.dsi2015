@@ -39,15 +39,15 @@ public class UsuarioBean implements UsuarioBeanLocal {
 			em.persist(uAdmin);
 		}
 	}
-	public boolean validaUsuario(String login, String senha){
+	public Usuario validaUsuario(String login, String senha){
 		try{
 			Query q = em.createNamedQuery("authUser");
 			q.setParameter("login", login);
 			q.setParameter("senha", senha);
 			q.setMaxResults(1);
-			return q.getSingleResult() != null;
+			return (Usuario)q.getSingleResult();
 		}catch (NoResultException e){
-			return false;
+			return null;
 		}
 	}
 }

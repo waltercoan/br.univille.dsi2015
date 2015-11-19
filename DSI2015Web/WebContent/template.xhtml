@@ -11,7 +11,7 @@
             body {background-color: #eeeeee; font-size: 12px}
         </style> 
     </h:head>
-    <h:body onload="PF('dlgLogin').show();">
+    <h:body onload="#{crtTemplate.abrirLogin()}">
         <div align="center">
             <p:layout style="min-width:1020px;max-width:1020px;min-height:600px">  
                 <p:layoutUnit position="north" size="100">  
@@ -26,6 +26,7 @@
                                 <p:submenu label="Menu">
                                     <p:menuitem value="Produtos" icon="ui-icon-contact" url="FrmProduto.xhtml"/>
                                     <p:menuitem value="Clientes" icon="ui-icon-contact" url="FrmCliente.xhtml"/>         
+                                    <p:menuitem value="Logoff" icon="ui-icon-contact" action="#{crtTemplate.dologoff()}"/>
                                 </p:submenu>
                             </p:menu>
                         </h:form>
