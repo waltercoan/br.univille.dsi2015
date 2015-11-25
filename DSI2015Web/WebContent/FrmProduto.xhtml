@@ -36,7 +36,8 @@
 			</h:form>
 			<!-- Inclusão do id="form"-->
 			<h:form id="form">
-				<p:dialog width="500" height="500" widgetVar="dlg1">
+				<p:dialog width="500" height="500" widgetVar="dlg1"
+					appendTo="@(body)">
 					<!-- Inclusão do id="formDetail"-->
 					<h:panelGrid columns="2" id="formDetail">
 					
@@ -52,9 +53,13 @@
 						<p:commandButton value="OK" 
 								action="#{crtProduto.save()}"
 								update=":formTable"
+								id="btnok"
+								process="btnok"
 								oncomplete="PF('dlg1').hide()"/>		
 						
 						<p:commandButton value="Cancelar"
+								id="btnCancelar"
+								process="btnCancelar"
 								oncomplete="PF('dlg1').hide()"/>
 								
 					</h:panelGrid>
